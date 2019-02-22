@@ -20,7 +20,7 @@
             -->
 			<div class="container-fluid">
 				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.png" />
+					<img src="${pageContext.request.contextPath}/img/logo.png" />
 				</div>
 				<div class="col-md-5">
 					<img src="${pageContext.request.contextPath}/img/header.png" />
@@ -63,11 +63,9 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav" id="myUL">
-							  <%-- 
-								  <c:forEach items="${allCats}" var="c">	
+								 <%--  <c:forEach items="${allCats}" var="c">	
 									<li><a href="#">${c.cname}</a></li>
-								  </c:forEach> 
-							  --%>
+								  </c:forEach>  --%>
 							</ul>
 							<form class="navbar-form navbar-right" role="search">
 								<div class="form-group">
@@ -87,20 +85,15 @@
 $(function(){
 	//向服务端CategoryServlet__>gteAllCats发起ajax请求,服务端经过处理,
 	//将所有分类信息以JSON格式的数据返回,获取到返回的所有分类绑定在页面的显示分类区域
-	var url="/store_v5/CategoryServlet";
+	var url="/XinZhouFreshVegetables/CategoryServlet";
 	var obj={"method":"findAllCats"};
 	$.post(url,obj,function(data){
-		//alert(data);
-	
 		//获取到服务端响应会的数据,经过观察data中存放的是一个JSON格式数组,遍历数组,动态的显示分类区域代码	
 		$.each(data,function(i,obj){
-			var li="<li><a href='/store_v5/ProductServlet?method=findProductsByCidWithPage&num=1&cid="+obj.cid+"'>"+obj.cname+"</a></li>";
+			var li="<li><a href='/XinZhouFreshVegetables/ProductServlet?method=findProductsByCidWithPage&num=1&cid="+obj.cid+"'>"+obj.cname+"</a></li>";
 			$("#myUL").append(li);
 		});
-		
 	},"json");
-	
-	
 });
 </script>
 </html>

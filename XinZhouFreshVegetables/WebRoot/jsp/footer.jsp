@@ -34,7 +34,7 @@
 					</ul>
 				</div>
 				<div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-					Copyright &copy; 2005-2016 传智商城 版权所有
+					Copyright &copy; 计本1501 201508110017 聂通
 				</div>
 			</div>
 	</body>
