@@ -57,15 +57,13 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp">首页</a>
+							<a class="navbar-brand" href="${pageContext.request.contextPath}/">首页</a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav" id="myUL">
-								 <%--  <c:forEach items="${allCats}" var="c">	
-									<li><a href="#">${c.cname}</a></li>
-								  </c:forEach>  --%>
+							
 							</ul>
 							<form class="navbar-form navbar-right" role="search">
 								<div class="form-group">

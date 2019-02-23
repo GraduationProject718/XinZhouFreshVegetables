@@ -95,13 +95,6 @@
 			</div>
 			<!--
 
-            	描述：广告部分
-            -->
-            <div class="container-fluid">
-				<img src="products/hao/ad.jpg" width="100%"/>
-			</div>
-			<!--
-
             	描述：商品显示
             -->
 			<div class="container-fluid">
@@ -127,8 +120,6 @@
 						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
 					</div>
 				</c:forEach>
-	
-				
 				</div>
 			</div>			
 			<!--

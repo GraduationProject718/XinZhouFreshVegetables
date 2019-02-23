@@ -48,7 +48,7 @@
 			<c:if test="${not empty cart.cartItems }">
 			<div class="row">
 				<div style="margin:0 auto; margin-top:10px;width:950px;">
-					<strong style="font-size:16px;margin:5px 0;">订单详情</strong>
+					<strong style="font-size:16px;margin:5px 0;">购物详情</strong>
 					<table class="table table-bordered">
 						<tbody>
 							<tr class="warning">
@@ -105,9 +105,6 @@
 					</a>
 				</div>
 			</div>
-				
-			
-			
 			</c:if>
 		</div>
 
@@ -136,7 +133,6 @@ $(function(){
 			location.href="${pageContext.request.contextPath}/CartServlet?method=delCartItem&pid="+pid;
 		}
 	});
-	
 });
 </script>
 </html>
