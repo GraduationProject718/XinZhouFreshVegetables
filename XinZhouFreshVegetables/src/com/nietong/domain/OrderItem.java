@@ -2,14 +2,11 @@ package com.nietong.domain;
 
 public class OrderItem {
 	private String itemid;//id
-	
-	
 	private int quantity;//数量
 	private double total;//小计
 	//1_product携带更多数据
 	//2_面向对象角度,对象关联对象
 	private Product product;
-	
 	
 	private Order order;
 	

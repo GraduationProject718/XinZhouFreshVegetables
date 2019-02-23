@@ -8,9 +8,7 @@ public class Order {
 	private String oid;  //订单ID
 	private Date orderTime;//下单时间
 	private int   state;//状态 1:下单未付款 2付款未发货 3发货未收货 4收货结束
-
 	private double total;//总计
-	
 	private String address;  //收货人地址
 	private String name;  //收货人姓名
 	private String telephone;  //收货人电话
@@ -18,11 +16,11 @@ public class Order {
 	//private String uid;
 	//1_user可以携带更多数据
 	//2_面向对象角度:对象关联对象
+	// 程序对象和对象发生关系，而不是对象和对象的属性发生关系 
 	private User user;
 	
 	//当前订单下有多少订单项
 	private List<OrderItem> list=new ArrayList<OrderItem>();
-	
 	
 
 	public List<OrderItem> getList() {
