@@ -13,6 +13,11 @@ import com.nietong.service.OrderService;
 import com.nietong.utils.JDBCUtils;
 
 public class OrderServiceImp implements OrderService {
+	@Override
+	public void updateOrder(Order order) throws Exception {
+		orderDao.updateOrder(order);
+	}
+
 	OrderDao orderDao = new OrderDaoImp();
 	@Override
 	public void saveOrder(Order order) throws Exception {

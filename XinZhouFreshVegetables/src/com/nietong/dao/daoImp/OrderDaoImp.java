@@ -25,6 +25,14 @@ public class OrderDaoImp implements OrderDao {
 
 
 	@Override
+	public void updateOrder(Order order) throws Exception {
+		String sql="UPDATE orders SET ordertime=? ,total=? ,state= ?, address=?,NAME=?, telephone =? WHERE oid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params={order.getOrderTime(),order.getTotal(),order.getState(),order.getAddress(),order.getName(),order.getTelephone(),order.getOid()};
+		qr.update(sql,params);
+	}
+
+	@Override
 	public void saveOrder(Connection conn, Order order) throws Exception {
 		String sql = "insert into orders values(?,?,?,?,?,?,?,?)";
 		QueryRunner qr = new QueryRunner();
