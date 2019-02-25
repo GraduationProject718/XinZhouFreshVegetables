@@ -9,6 +9,18 @@ import com.nietong.service.ProductService;
 
 public class ProductServiceImp implements ProductService {
 	ProductDao ProductDao = new ProductDaoImp();
+	@Override
+	public PageModel findAllProductsWithPage(int curNum) throws Exception {
+		// 创建对象
+		int totalRecords = ProductDao.findTotalRecords();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		// 关联集合
+		List<Product> list = ProductDao.findAllProductsWithPage(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		// 关联url
+		pm.setUrl("AdminProductServlet?method=findAllProductsWithPage");
+		return pm;
+	}
 	
 	@Override
 	public PageModel findProductsByCidWithPage(String cid, int curNum) throws Exception {

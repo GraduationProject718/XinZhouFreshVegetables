@@ -14,6 +14,21 @@ import com.nietong.utils.JDBCUtils;
 public class ProductDaoImp implements ProductDao{
 
 	@Override
+	public int findTotalRecords() throws Exception {
+		String sql = "select count(*) from product";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler());
+		return num.intValue();
+	}
+
+	@Override
+	public List<Product> findAllProductsWithPage(int startIndex, int pageSize) throws Exception {
+		String sql = "select * from product limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Product>(Product.class),startIndex,pageSize);
+	}
+
+	@Override
 	public List<Product> findHots() throws Exception {
 		String sql = "SELECT * FROM product WHERE pflag=0 AND is_hot=1 ORDER BY pdate DESC LIMIT 0,9";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());

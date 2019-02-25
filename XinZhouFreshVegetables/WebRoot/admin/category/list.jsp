@@ -47,6 +47,9 @@
 										删除
 									</td>
 								</tr>
+								<!-- varStatus : 代表循环过程中存储临时状态值
+									 status.count:当前循环的状态值
+								 -->
 								<c:forEach items="${allCats}" var="c" varStatus="status">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
