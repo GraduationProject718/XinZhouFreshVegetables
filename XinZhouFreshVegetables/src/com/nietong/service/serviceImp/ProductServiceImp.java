@@ -10,6 +10,11 @@ import com.nietong.service.ProductService;
 public class ProductServiceImp implements ProductService {
 	ProductDao ProductDao = new ProductDaoImp();
 	@Override
+	public void saveProduct(Product product) throws Exception {
+		ProductDao.saveProduct(product);
+	}
+
+	@Override
 	public PageModel findAllProductsWithPage(int curNum) throws Exception {
 		// 创建对象
 		int totalRecords = ProductDao.findTotalRecords();

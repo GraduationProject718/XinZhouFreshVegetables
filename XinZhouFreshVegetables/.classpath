@@ -33,7 +33,6 @@
 	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/standard.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/activation.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/commons-collections-3.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/commons-fileupload-1.2.1.jar.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/commons-lang-2.5.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/commons-pool2-2.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/dom4j-1.6.1.jar"/>

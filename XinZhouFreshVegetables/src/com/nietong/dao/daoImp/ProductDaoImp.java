@@ -14,6 +14,14 @@ import com.nietong.utils.JDBCUtils;
 public class ProductDaoImp implements ProductDao{
 
 	@Override
+	public void saveProduct(Product product) throws Exception {
+		String sql="INSERT INTO product VALUES(?,?,?,?,?,?,?,?,?,?)";
+		QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params={product.getPid(),product.getPname(),product.getMarket_price(),product.getShop_price(),product.getPimage(),product.getPdate(),product.getIs_hot(),product.getPdesc(),product.getPflag(),product.getCid()};
+		qr.update(sql,params);
+	}
+
+	@Override
 	public int findTotalRecords() throws Exception {
 		String sql = "select count(*) from product";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
