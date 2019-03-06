@@ -79,4 +79,14 @@ public class OrderServiceImp implements OrderService {
 		return orderDao.findOrderByOid(oid);
 	}
 
+	@Override
+	public List<Order> findAllOrders() throws Exception {
+		return orderDao.findAllOrders();
+	}
+
+	@Override
+	public List<Order> findAllOrders(String st) throws Exception {
+		return orderDao.findAllOrders(st);
+	}
+
 }

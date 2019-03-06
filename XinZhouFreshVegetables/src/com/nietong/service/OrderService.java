@@ -1,5 +1,7 @@
 package com.nietong.service;
 
+import java.util.List;
+
 import com.nietong.domain.Order;
 import com.nietong.domain.PageModel;
 import com.nietong.domain.User;
@@ -13,5 +15,9 @@ public interface OrderService {
 	Order findOrderByOid(String oid) throws Exception;
 
 	void updateOrder(Order order) throws Exception;
+
+	List<Order> findAllOrders() throws Exception;
+
+	List<Order> findAllOrders(String st) throws Exception;
 
 }

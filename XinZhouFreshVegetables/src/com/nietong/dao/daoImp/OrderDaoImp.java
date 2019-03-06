@@ -151,6 +151,20 @@ public class OrderDaoImp implements OrderDao {
 		}
 		return order;
 	}
+
+	@Override
+	public List<Order> findAllOrders() throws Exception {
+		String sql="select * from orders";
+		QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Order>(Order.class));
+	}
+
+	@Override
+	public List<Order> findAllOrders(String st) throws Exception {
+		String sql="select * from orders where state= ?";
+		QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Order>(Order.class),st);
+	}
 	
 
 }
