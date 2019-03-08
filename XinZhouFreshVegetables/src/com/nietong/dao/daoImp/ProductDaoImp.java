@@ -14,6 +14,15 @@ import com.nietong.utils.JDBCUtils;
 public class ProductDaoImp implements ProductDao{
 
 	@Override
+	public void pushUp(String pid) throws Exception {
+		int pflag = 0;
+		String sql="UPDATE product SET pflag=? WHERE pid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params={pflag,pid};
+		qr.update(sql,params);
+	}
+
+	@Override
 	public void saveProduct(Product product) throws Exception {
 		String sql="INSERT INTO product VALUES(?,?,?,?,?,?,?,?,?,?)";
 		QueryRunner qr=new QueryRunner(JDBCUtils.getDataSource());

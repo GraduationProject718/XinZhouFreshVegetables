@@ -46,7 +46,17 @@ public class AdminProductServlet extends BaseServlet {
 		// 转发到/admin/product/list.jsp
 		return "/admin/product/list.jsp";
 	}
-	
+	public String findAllProductsWithPushdown(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// 获取当前页
+		int curNum = Integer.parseInt(request.getParameter("num"));
+		// 调用业务层查全部商品信息 返回PageModel
+		ProductService ProductService = new ProductServiceImp();
+		PageModel pm = ProductService.findAllProductsWithPage(curNum);
+		// 将PageModel放入request
+		request.setAttribute("page", pm);
+		// 转发到/admin/product/list.jsp
+		return "/admin/product/pushDown_list.jsp";
+	}
 	// addProductUI
 	public String addProductUI(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		CategoryService CategoryService=new CategoryServiceImp();
@@ -57,7 +67,13 @@ public class AdminProductServlet extends BaseServlet {
 		//转发到/admin/product/add.jsp
 		return "/admin/product/add.jsp";
 	}
-	
+	public String pushUp(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String pid = request.getParameter("pid");
+		ProductService ProductService = new ProductServiceImp();
+		ProductService.pushUp(pid);
+		response.sendRedirect("AdminProductServlet?method=findAllProductsWithPage&num=1");
+		return null;
+	}
 	// addProduct
 	public String addProduct(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		//存储表单中数据

@@ -32,7 +32,34 @@ public class AdminCategoryServlet extends BaseServlet {
 		return "/admin/category/add.jsp";
 	}
 	
-	public String addCat(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String delCate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String cid = request.getParameter("cid");
+		CategoryService CategoryService = new CategoryServiceImp();
+		CategoryService.delCate(cid);
+		response.sendRedirect("AdminCategoryServlet?method=findAllCats");
+		return null;
+	}
+	
+	public String editUI(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String cid = request.getParameter("cid");
+		CategoryService CategoryService = new CategoryServiceImp();
+		Category category = CategoryService.getCateById(cid);
+		request.setAttribute("category", category);
+		return "/admin/category/edit.jsp";
+	}
+	
+	public String editCate(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String cname = request.getParameter("cname");
+		String cid = request.getParameter("cid");
+		Category c = new Category();
+		c.setCid(cid);
+		c.setCname(cname);
+		CategoryService CategoryService = new CategoryServiceImp();
+		CategoryService.editCategory(c);
+		response.sendRedirect("AdminCategoryServlet?method=findAllCats");
+		return null;
+	}
+	public String addCat(HttpServletRequest	 request, HttpServletResponse response) throws Exception {
 		// 获取分类名称
 		String cname = request.getParameter("cname");
 		// 创建分类ID

@@ -58,6 +58,7 @@
 									</td>
 								</tr>
 								<c:forEach items="${page.list}" var="p" varStatus="status">
+									<c:if test="${ p.pflag == 0 }">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
@@ -76,10 +77,18 @@
 												width="17%">
 												${ p.shop_price }
 											</td>
+											<c:if test="${  p.is_hot ==1 }">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-													是(1)/否(0)
+													是
 											</td>
+											</c:if>
+											<c:if test="${  p.is_hot == 0 }">
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="17%">
+													否
+											</td>
+											</c:if>
 											<td align="center" style="HEIGHT: 22px">
 												<a href="">
 													<img src="${pageContext.request.contextPath}/img/admin/i_edit.gif" border="0" style="CURSOR: hand">
@@ -93,6 +102,7 @@
 												</a>
 											</td>
 										</tr>
+										</c:if>
 									</c:forEach>
 							</table>
 						</td>

@@ -8,6 +8,12 @@ import com.nietong.domain.Product;
 import com.nietong.service.ProductService;
 
 public class ProductServiceImp implements ProductService {
+	@Override
+	public void pushUp(String pid) throws Exception {
+		ProductDao.pushUp(pid);
+		
+	}
+
 	ProductDao ProductDao = new ProductDaoImp();
 	@Override
 	public void saveProduct(Product product) throws Exception {

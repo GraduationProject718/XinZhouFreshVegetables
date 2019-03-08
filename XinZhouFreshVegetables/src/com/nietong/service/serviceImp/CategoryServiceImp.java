@@ -11,10 +11,25 @@ import com.nietong.utils.JedisUtils;
 import redis.clients.jedis.Jedis;
 
 public class CategoryServiceImp implements CategoryService {
+
+	@Override
+	public void delCate(String cid) throws Exception {
+		CategoryDao.delCate(cid);
+	}
+
 	CategoryDao CategoryDao = new CategoryDaoImp();
 	@Override
+	public Category getCateById(String cid) throws Exception {
+		return CategoryDao.getCateById(cid);
+	}
+
+	@Override
+	public void editCategory(Category c) throws Exception {
+		CategoryDao.editCategory(c);
+	}
+
+	@Override
 	public List<Category> getAllCats() throws Exception {
-	
 		return CategoryDao.getAllCats();
 	}
 

@@ -1,13 +1,14 @@
-<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
 <HTML>
 	<HEAD>
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css" />
-		<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
 		<script type="text/javascript">
 			function addProduct(){
-				window.location.href = "${pageContext.request.contextPath}/AdminProductServlet?method=saveUI";
+				window.location.href = "${pageContext.request.contextPath}/AdminProductServlet?method=addProductUI";
 			}
 		</script>
 	</HEAD>
@@ -23,10 +24,7 @@
 					</tr>
 					<tr>
 						<td class="ta_01" align="right">
-							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addProduct()">
-&#28155;&#21152;
-</button>
-
+							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addProduct()">&#28155;&#21152;</button>
 						</td>
 					</tr>
 					<tr>
@@ -52,45 +50,58 @@
 									<td align="center" width="17%">
 										是否热门
 									</td>
+									
 									<td width="7%" align="center">
 										上架
 									</td>
 								</tr>
+								<c:forEach items="${page.list}" var="p" varStatus="status">
+									<c:if test="${ p.pflag == 1 }">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="18%">
-												1
+												${ status.count }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-												<img width="40" height="45" src="${ pageContext.request.contextPath }/products/1/c_0037.jpg">
+												<img width="40" height="45" src="${ pageContext.request.contextPath }/${p.pimage}">
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-												笔记本
+												${ p.pname }
 											</td>
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-												998
+												${ p.shop_price }
 											</td>
+											<c:if test="${  p.is_hot ==1 }">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 												width="17%">
-													是(1)/否(0)
+													是
 											</td>
+											</c:if>
+											<c:if test="${  p.is_hot == 0 }">
+											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
+												width="17%">
+													否
+											</td>
+											</c:if>
+									
 											<td align="center" style="HEIGHT: 22px">
-												<a href="#">
+												<a href="${pageContext.request.contextPath}/AdminProductServlet?method=pushUp&pid=${p.pid}">
 													<img src="${pageContext.request.contextPath}/img/admin/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
-									
 										</tr>
+										</c:if>
+									</c:forEach>
 							</table>
 						</td>
 					</tr>
-					
 				</TBODY>
 			</table>
+			<%@include file="/jsp/pageFile.jsp" %>
 		</form>
 	</body>
 </HTML>

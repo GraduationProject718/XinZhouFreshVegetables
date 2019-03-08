@@ -22,4 +22,6 @@ public interface ProductDao {
 
 	void saveProduct(Product product) throws Exception;
 
+	void pushUp(String pid)throws Exception;
+
 }

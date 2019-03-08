@@ -10,6 +10,13 @@
 			function addCategory(){
 				window.location.href = "${pageContext.request.contextPath}/AdminCategoryServlet?method=addCatUI";
 			}
+			function delCate(cid){
+				if(confirm("确认删除？")){
+					window.location.href="${pageContext.request.contextPath}/AdminCategoryServlet?method=delCate&cid="+cid;
+				}else{
+					return false;
+				}
+			}
 		</script>
 	</HEAD>
 	<body>
@@ -62,13 +69,13 @@
 												${c.cname}
 											</td>
 											<td align="center" style="HEIGHT: 22px">
-												<a href="edit.jsp">
+												<a href="${pageContext.request.contextPath}/AdminCategoryServlet?method=editUI&cid=${c.cid}">
 													<img src="${pageContext.request.contextPath}/img/admin/i_edit.gif" border="0" style="CURSOR: hand">
 												</a>
 											</td>
 									
 											<td align="center" style="HEIGHT: 22px">
-												<a href="#">
+												<a href="javascript:delCate('${c.cid }')">
 													<img src="${pageContext.request.contextPath}/img/admin/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
 											</td>
