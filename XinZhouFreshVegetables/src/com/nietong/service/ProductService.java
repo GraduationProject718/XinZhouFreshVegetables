@@ -21,4 +21,10 @@ public interface ProductService {
 
 	void pushUp(String pid) throws Exception;
 
+	void pushDown(String pid)throws Exception;
+
+	PageModel findAllProductsWithPushdown(int curNum) throws Exception;
+
+	void editProduct(Product product) throws Exception;
+
 }

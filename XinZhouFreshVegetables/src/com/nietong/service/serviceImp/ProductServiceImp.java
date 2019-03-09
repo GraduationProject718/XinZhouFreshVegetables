@@ -9,9 +9,18 @@ import com.nietong.service.ProductService;
 
 public class ProductServiceImp implements ProductService {
 	@Override
+	public void editProduct(Product product) throws Exception {
+		ProductDao.editProduct(product);
+	}
+
+	@Override
 	public void pushUp(String pid) throws Exception {
 		ProductDao.pushUp(pid);
-		
+	}
+
+	@Override
+	public void pushDown(String pid) throws Exception {
+		ProductDao.pushDown(pid);
 	}
 
 	ProductDao ProductDao = new ProductDaoImp();
@@ -57,6 +66,19 @@ public class ProductServiceImp implements ProductService {
 	@Override
 	public Product findProductByPid(String pid) throws Exception {
 		return ProductDao.findProductByPid(pid);
+	}
+
+	@Override
+	public PageModel findAllProductsWithPushdown(int curNum) throws Exception {
+		// 创建对象
+		int totalRecords = ProductDao.findTotalRecordsWithPushdown();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		// 关联集合
+		List<Product> list = ProductDao.findAllProductsWithPushdown(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		// 关联url
+		pm.setUrl("AdminProductServlet?method=findAllProductsWithPushdown");
+		return pm;
 	}
 
 }

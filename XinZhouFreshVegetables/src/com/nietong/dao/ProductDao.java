@@ -24,4 +24,12 @@ public interface ProductDao {
 
 	void pushUp(String pid)throws Exception;
 
+	void pushDown(String pid) throws Exception;
+
+	int findTotalRecordsWithPushdown() throws Exception;
+
+	List<Product> findAllProductsWithPushdown(int startIndex, int pageSize) throws Exception;
+
+	void editProduct(Product product) throws Exception;
+
 }

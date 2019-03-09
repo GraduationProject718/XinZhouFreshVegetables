@@ -56,7 +56,6 @@
 									</td>
 								</tr>
 								<c:forEach items="${page.list}" var="p" varStatus="status">
-									<c:if test="${ p.pflag == 1 }">
 										<tr onmouseover="this.style.backgroundColor = 'white'"
 											onmouseout="this.style.backgroundColor = '#F5FAFE';">
 											<td style="CURSOR: hand; HEIGHT: 22px" align="center"
@@ -94,7 +93,6 @@
 												</a>
 											</td>
 										</tr>
-										</c:if>
 									</c:forEach>
 							</table>
 						</td>

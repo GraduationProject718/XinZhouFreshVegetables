@@ -14,6 +14,39 @@ import com.nietong.utils.JDBCUtils;
 public class ProductDaoImp implements ProductDao{
 
 	@Override
+	public void editProduct(Product product) throws Exception {
+		String sql="UPDATE product SET pname=?, market_price=?, shop_price=?, pimage=?, pdate=?, is_hot=?, pdesc=?, pflag=?, cid=? WHERE pid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params={product.getPname(),product.getMarket_price(),product.getShop_price(),product.getPimage(),product.getPdate(),product.getIs_hot(),product.getPdesc(),product.getPflag(),product.getCid(),product.getPid()};
+		qr.update(sql,params);
+	}
+
+	@Override
+	public int findTotalRecordsWithPushdown() throws Exception {
+		String sql = "select count(pflag) from product";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler());
+		return num.intValue();
+	}
+
+	@Override
+	public List<Product> findAllProductsWithPushdown(int startIndex, int pageSize) throws Exception {
+		int pflag = 1;
+		String sql = "select * from product where pflag=? limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Product>(Product.class),pflag,startIndex,pageSize);
+	}
+
+	@Override
+	public void pushDown(String pid) throws Exception {
+		int pflag = 1;
+		String sql="UPDATE product SET pflag=? WHERE pid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params={pflag,pid};
+		qr.update(sql,params);
+	}
+
+	@Override
 	public void pushUp(String pid) throws Exception {
 		int pflag = 0;
 		String sql="UPDATE product SET pflag=? WHERE pid=?";
