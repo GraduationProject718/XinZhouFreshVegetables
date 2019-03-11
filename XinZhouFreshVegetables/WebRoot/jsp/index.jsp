@@ -34,19 +34,19 @@
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img src="${pageContext.request.contextPath}/img/ad/1.jpg">
+							<img src="${pageContext.request.contextPath}/img/gun1.jpg">
 							<div class="carousel-caption">
 
 							</div>
 						</div>
 						<div class="item">
-							<img src="${pageContext.request.contextPath}/img/ad/2.jpg">
+							<img src="${pageContext.request.contextPath}/img/gun2.jpg">
 							<div class="carousel-caption">
 
 							</div>
 						</div>
 						<div class="item">
-							<img src="${pageContext.request.contextPath}/img/ad/3.jpg">
+							<img src="${pageContext.request.contextPath}/img/gun3.jpg">
 							<div class="carousel-caption">
 
 							</div>
@@ -73,12 +73,12 @@
 					<h2>最新商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
 				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
-					<img src="products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
+					<img src="img/shu1.jpg" width="205" height="404" style="display: inline-block;"/>
 				</div>
 				<div class="col-md-10">
 					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
 						<a href="product_info.htm">
-							<img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
+							<img src="img/heng1.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
 				<c:forEach items="${news}" var="p">
@@ -102,12 +102,12 @@
 					<h2>热门商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
 				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
-					<img src="products/hao/big01.jpg" width="205" height="404" style="display: inline-block;"/>
+					<img src="img/shu2.jpg" width="205" height="404" style="display: inline-block;"/>
 				</div>
 				<div class="col-md-10">
 					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
 						<a href="product_info.htm">
-							<img src="products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
+							<img src="img/heng2.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
 				
