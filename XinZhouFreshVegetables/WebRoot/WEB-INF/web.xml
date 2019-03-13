@@ -121,8 +121,35 @@
     <servlet-name>AdminOrderServlet</servlet-name>
     <servlet-class>com.nietong.web.servlet.AdminOrderServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>EstimateServlet</servlet-name>
+    <servlet-class>com.nietong.web.servlet.EstimateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AdminEstimateServlet</servlet-name>
+    <servlet-class>com.nietong.web.servlet.AdminEstimateServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>NoticeServlet</servlet-name>
+    <servlet-class>com.nietong.web.servlet.NoticeServlet</servlet-class>
+  </servlet>
+
+
+
   <servlet-mapping>
     <servlet-name>AdminOrderServlet</servlet-name>
     <url-pattern>/AdminOrderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EstimateServlet</servlet-name>
+    <url-pattern>/EstimateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminEstimateServlet</servlet-name>
+    <url-pattern>/AdminEstimateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>NoticeServlet</servlet-name>
+    <url-pattern>/NoticeServlet</url-pattern>
   </servlet-mapping>
 </web-app>

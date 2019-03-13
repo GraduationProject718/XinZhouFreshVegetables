@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.nietong.dao.ProductDao;
+import com.nietong.domain.Notice;
 import com.nietong.domain.Product;
 import com.nietong.utils.JDBCUtils;
 
@@ -27,6 +28,22 @@ public class ProductDaoImp implements ProductDao{
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		Long num = (Long)qr.query(sql, new ScalarHandler());
 		return num.intValue();
+	}
+
+	
+	@Override
+	public int findSearchTotalRecords(String searchInfo) throws Exception {
+		String sql = "select count(*) from product where pname = ? like  '%\\%%'";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler(),searchInfo);
+		return num.intValue();
+	}
+	
+	@Override
+	public List searchProduct(String searchInfo, int startIndex, int pageSize) throws Exception {
+		String sql = "select * from product where  pname = ? like '%\\%%' limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Product>(Product.class),searchInfo,startIndex,pageSize);
 	}
 
 	@Override
@@ -81,6 +98,13 @@ public class ProductDaoImp implements ProductDao{
 	@Override
 	public List<Product> findHots() throws Exception {
 		String sql = "SELECT * FROM product WHERE pflag=0 AND is_hot=1 ORDER BY pdate DESC LIMIT 0,9";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Product>(Product.class));
+	}
+
+	@Override
+	public List<Product> findTop() throws Exception {
+		String sql = "SELECT * FROM product WHERE pflag=0 ORDER BY pid DESC LIMIT 0,4";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Product>(Product.class));
 	}

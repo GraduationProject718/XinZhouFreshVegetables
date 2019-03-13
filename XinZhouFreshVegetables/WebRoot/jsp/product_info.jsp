@@ -23,6 +23,16 @@
 				height: 300px;
 			}
 		</style>
+		<script type="text/javascript">
+			function check(){
+				var uid = $("#uid").val();
+				if(uid == null || uid==""){
+					alert("请登录后在评价！");
+					return false;
+				}
+				return true;
+			}
+		</script>
 	</head>
 
 	<body>
@@ -86,15 +96,40 @@
 				</div>
 			</div>
 		</div>
+		<!--
+       		在线评价
+        -->
+		<div style="width:1210px;margin:0 auto; padding: 0 9px;border: 1px solid #ddd;border-top: 2px solid #999;height: 246px;">
 
+			<h4 style="width: 50%;float: left;font: 14px/30px " 微软雅黑 ";">在线评价</h4>
+			<div style="width: 50%;float: right;text-align: right;"></div>
+			<div style="clear: both;"></div>
+
+			<div style="overflow: hidden;">
+				<form action="EstimateServlet?method=addEstimate" method="post"  >
+					<textarea rows="10" cols="200" name="estimateInfo" id="estimateInfo"></textarea>
+					<input type="hidden" name="uid" id="uid" value="${loginUser.uid }">
+					<input type="hidden" name="pid" value="${product.pid}"/>
+					<input type="submit" value="评价" onclick="return check();" />
+				</form>
+			</div>
+			
+			<c:if test="${not empty page.list}">
+				<c:forEach items="${page.list}" var="e">
+					<div class="col-md-2">
+						<p>${e.content }${e.date }</p>
+					</div>
+				</c:forEach>
+				<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
+			</c:if>
+		</div>
+		<br /><br />
 	<%@include file="/jsp/footer.jsp" %>
 	</body>
 <script>
 $(function(){
 	$("#btnId").click(function(){
 		var formObj=document.getElementById("myForm");
-		//formObj.action="/store_v5/CartServlet";
-		//formObj.method="get";
 		formObj.submit();
 	});
 });

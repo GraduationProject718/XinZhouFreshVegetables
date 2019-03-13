@@ -3,6 +3,7 @@ package com.nietong.service.serviceImp;
 import java.util.List;
 import com.nietong.dao.ProductDao;
 import com.nietong.dao.daoImp.ProductDaoImp;
+import com.nietong.domain.Notice;
 import com.nietong.domain.PageModel;
 import com.nietong.domain.Product;
 import com.nietong.service.ProductService;
@@ -54,6 +55,16 @@ public class ProductServiceImp implements ProductService {
 
 	
 	@Override
+	public PageModel searchProduct(String searchInfo, int curNum) throws Exception {
+		int totalRecords = ProductDao.findSearchTotalRecords(searchInfo);
+		PageModel pm = new PageModel(curNum, totalRecords, 12);
+		List list = ProductDao.searchProduct(searchInfo,pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("ProductServlet?method=searchProduct");
+		return pm;
+	}
+
+	@Override
 	public List<Product> findHots() throws Exception {
 		return ProductDao.findHots();
 	}
@@ -61,6 +72,11 @@ public class ProductServiceImp implements ProductService {
 	@Override
 	public List<Product> findNews() throws Exception {
 		return ProductDao.findNew();
+	}
+	
+	@Override
+	public List<Product> findTop() throws Exception {
+		return ProductDao.findTop();
 	}
 
 	@Override

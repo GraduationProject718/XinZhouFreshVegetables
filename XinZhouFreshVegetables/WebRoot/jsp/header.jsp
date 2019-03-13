@@ -23,7 +23,7 @@
 					<img src="${pageContext.request.contextPath}/img/logo.png" />
 				</div>
 				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
+					
 				</div>
 				<div class="col-md-3" style="padding-top:20px">
 					<ol class="list-inline">
@@ -34,7 +34,7 @@
 					  </c:if>
 						
 					  <c:if test="${not empty loginUser}">
-						<li>欢迎${loginUser.username}</li>
+						<li>欢迎${loginUser.username}<%-- <a href="${pageContext.request.contextPath}/jsp/user.jsp">${loginUser.username}</a> --%></li>
 						<li><a href="${pageContext.request.contextPath}/UserServlet?method=logOut">退出</a></li>
 						<li><a href="${pageContext.request.contextPath}/jsp/cart.jsp">购物车</a></li>
 						<li><a href="${pageContext.request.contextPath}/OrderServlet?method=findMyOrdersWithPage&num=1">我的订单</a></li>
@@ -65,9 +65,9 @@
 							<ul class="nav navbar-nav" id="myUL">
 							
 							</ul>
-							<form class="navbar-form navbar-right" role="search">
+							<form class="navbar-form navbar-right" role="search" action="ProductServlet?method=searchProduct&num=1" method="post">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
+									<input type="text" class="form-control" placeholder="Search" name="searchInfo" id="searchInfo" >
 								</div>
 								<button type="submit" class="btn btn-default">Submit</button>
 							</form>

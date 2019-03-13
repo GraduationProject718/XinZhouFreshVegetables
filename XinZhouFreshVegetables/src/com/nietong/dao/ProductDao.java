@@ -2,6 +2,7 @@ package com.nietong.dao;
 
 import java.util.List;
 
+import com.nietong.domain.Notice;
 import com.nietong.domain.Product;
 
 public interface ProductDao {
@@ -31,5 +32,11 @@ public interface ProductDao {
 	List<Product> findAllProductsWithPushdown(int startIndex, int pageSize) throws Exception;
 
 	void editProduct(Product product) throws Exception;
+
+	int findSearchTotalRecords(String searchInfo) throws Exception;
+
+	List searchProduct(String searchInfo, int startIndex, int pageSize) throws Exception;
+
+	List<Product> findTop() throws Exception;
 
 }

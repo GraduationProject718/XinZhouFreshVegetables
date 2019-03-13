@@ -64,6 +64,53 @@
 					</a>
 				</div>
 			</div>
+			
+			<!--
+
+            	描述：排行榜
+            -->
+			<div class="container-fluid" style="width:50%;float:left;">
+				<div class="col-md-12">
+					<h2>排行榜&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
+				</div>
+				<div class="col-md-10">
+				<c:forEach items="${top}" var="p">
+					<c:if test="${p.pflag == 0 }">
+					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;margin-right:40px;">
+						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
+							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
+						</a>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666'>${p.pname}</a></p>
+						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
+					</div>
+					</c:if>
+				</c:forEach>
+				</div>
+			</div>		
+			
+			<!--
+
+            	描述：站内公告
+            -->
+			<div class="container-fluid" style="width:50%;float:right;">
+				<div class="col-md-12">
+					<h2>站内公告&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
+				</div>
+				<div class="col-md-10">
+				<table>
+				<c:forEach items="${notice}" var="n">
+					<tr>
+						<td>
+							<div >
+								${n.ntitle}
+							</div>
+						</td>
+					</tr>
+				</c:forEach>
+				</table>
+				</div>
+			</div>		
+			
 			<!--
 
             	描述：商品显示
@@ -82,13 +129,15 @@
 						</a>
 					</div>
 				<c:forEach items="${news}" var="p">
+					<c:if test="${p.pflag == 0 }">
 					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}">
+						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
 							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}" style='color:#666'>${p.pname}</a></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666'>${p.pname}</a></p>
 						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
 					</div>
+					</c:if>
 				</c:forEach>
 					
 				</div>
@@ -112,20 +161,24 @@
 					</div>
 				
 				<c:forEach items="${hots}" var="p">
+					<c:if test="${p.pflag == 0 }">
 					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}">
+						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
 							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}" style='color:#666'>${p.pname}</a></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666'>${p.pname}</a></p>
 						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
 					</div>
+					</c:if>
 				</c:forEach>
 				</div>
-			</div>			
+			</div>	
+			
+			
+			
 			<!--
             	描述：页脚部分
             -->
 			<%@ include file="/jsp/footer.jsp" %>
 	</body>
-
 </html>

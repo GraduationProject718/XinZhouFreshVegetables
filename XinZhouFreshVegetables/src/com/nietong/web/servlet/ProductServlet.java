@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nietong.domain.PageModel;
 import com.nietong.domain.Product;
+import com.nietong.service.EstimateService;
 import com.nietong.service.ProductService;
+import com.nietong.service.serviceImp.EstimateServiceImp;
 import com.nietong.service.serviceImp.ProductServiceImp;
 import com.nietong.web.base.BaseServlet;
 
@@ -23,9 +25,19 @@ public class ProductServlet extends BaseServlet {
 		String pid = request.getParameter("pid");
 		Product product = ProductService.findProductByPid(pid);
 		request.setAttribute("product", product);
+		int curNum =Integer.parseInt(request.getParameter("num"));
+		EstimateService estimateService = new EstimateServiceImp();
+		PageModel pm = estimateService.findEstimateByProductPage(pid,curNum);
+		request.setAttribute("page", pm);
 		return "/jsp/product_info.jsp";
 	}
-	
+	public String searchProduct(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.valueOf(request.getParameter("num"));
+		String searchInfo = request.getParameter("searchInfo");
+		PageModel pm = ProductService.searchProduct(searchInfo,curNum);
+		request.setAttribute("page", pm);
+		return "/jsp/search_list.jsp";
+	}
 	public String findProductsByCidWithPage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String cid = request.getParameter("cid");
 		int curNum = Integer.valueOf(request.getParameter("num"));
