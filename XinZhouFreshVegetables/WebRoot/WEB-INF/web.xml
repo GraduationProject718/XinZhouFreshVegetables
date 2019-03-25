@@ -133,6 +133,11 @@
     <servlet-name>NoticeServlet</servlet-name>
     <servlet-class>com.nietong.web.servlet.NoticeServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>AdminUserServlet</servlet-name>
+    <servlet-class>com.nietong.web.servlet.AdminUserServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -151,5 +156,9 @@
   <servlet-mapping>
     <servlet-name>NoticeServlet</servlet-name>
     <url-pattern>/NoticeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AdminUserServlet</servlet-name>
+    <url-pattern>/AdminUserServlet</url-pattern>
   </servlet-mapping>
 </web-app>

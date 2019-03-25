@@ -15,10 +15,8 @@
 
 	<body>
 		<div class="container-fluid">
-	
 		<%@ include file="/jsp/header.jsp" %>
-			
-
+		<div style="width:1400px;margin:0 auto;">
 			<!--
             	描述：轮播条
             -->
@@ -92,7 +90,7 @@
 
             	描述：站内公告
             -->
-			<div class="container-fluid" style="width:50%;float:right;">
+			<div class="container-fluid" style="width:50%;float:right;font-size:20px;">
 				<div class="col-md-12">
 					<h2>站内公告&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
@@ -174,8 +172,8 @@
 				</div>
 			</div>	
 			
-			
-			
+			</div>
+			</div>
 			<!--
             	描述：页脚部分
             -->

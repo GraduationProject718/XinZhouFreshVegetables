@@ -120,8 +120,8 @@
 						<p>${e.content }${e.date }</p>
 					</div>
 				</c:forEach>
-				<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
 			</c:if>
+			<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
 		</div>
 		<br /><br />
 	<%@include file="/jsp/footer.jsp" %>

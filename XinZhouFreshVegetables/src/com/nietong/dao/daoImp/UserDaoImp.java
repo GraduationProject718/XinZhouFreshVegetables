@@ -1,15 +1,43 @@
 package com.nietong.dao.daoImp;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.nietong.dao.UserDao;
+import com.nietong.domain.Estimate;
 import com.nietong.domain.User;
 import com.nietong.utils.JDBCUtils;
 
 public class UserDaoImp implements UserDao {
+	
+	
+	@Override
+	public void delAdminUser(String id) throws SQLException {
+		String sql = "delete from user where uid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql,id);
+		
+	}
+
+	@Override
+	public List<User> findAllUser(int startIndex, int pageSize) throws SQLException {
+		String sql = "select * from user order by uid desc limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<User>(User.class),startIndex,pageSize);
+	}
+
+	@Override
+	public int findAdminTotalRecords() throws SQLException {
+		String sql = "select count(*) from user ";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Long num = (Long)qr.query(sql, new ScalarHandler());
+		return num.intValue();
+	}
 
 	@Override
 	public User userActive(String code) throws SQLException {

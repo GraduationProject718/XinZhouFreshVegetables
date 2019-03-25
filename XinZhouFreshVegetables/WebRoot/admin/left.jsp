@@ -39,8 +39,7 @@
 	d.add('010505','0105','已完成的订单','${pageContext.request.contextPath}/AdminOrderServlet?method=findOrders&state=4','','mainFrame');
 	
 	d.add('0106','01','用户管理');
-	d.add('010601','0106','A类用户管理','http://www.51cto.com','${pageContext.request.contextPath}/img/footer.jpg','mainFrame');
-	d.add('010602','0106','B类用户管理','http://www.51cto.com','${pageContext.request.contextPath}/img/footer.jpg','mainFrame');
+	d.add('010601','0106','用户管理','${pageContext.request.contextPath}/AdminUserServlet?method=findAllUser&num=1','${pageContext.request.contextPath}/img/footer.jpg','mainFrame');
 	
 	d.add('0107','01','评价管理');
 	d.add('010609','0107','评价管理','${pageContext.request.contextPath}/AdminEstimateServlet?method=findAllEstimate&num=1','${pageContext.request.contextPath}/img/footer.jpg','mainFrame');

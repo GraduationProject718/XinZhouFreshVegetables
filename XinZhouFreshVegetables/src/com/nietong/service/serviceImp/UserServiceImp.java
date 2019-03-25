@@ -1,13 +1,35 @@
 package com.nietong.service.serviceImp;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.nietong.dao.UserDao;
 import com.nietong.dao.daoImp.UserDaoImp;
+import com.nietong.domain.Estimate;
+import com.nietong.domain.PageModel;
 import com.nietong.domain.User;
 import com.nietong.service.UserService;
 
 public class UserServiceImp implements UserService {
+
+	
+	
+	@Override
+	public void delAdminUser(String id) throws SQLException {
+		UserDao UserDao = new UserDaoImp();
+		UserDao.delAdminUser(id);
+	}
+
+	@Override
+	public PageModel findAllUser(int curNum) throws SQLException {
+		UserDao UserDao = new UserDaoImp();
+		int totalRecords = UserDao.findAdminTotalRecords();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		List<User> list = UserDao.findAllUser(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("AdminUserServlet?method=findAllUser");
+		return pm;
+	}
 
 	@Override
 	public void userRegist(User user) throws SQLException{
