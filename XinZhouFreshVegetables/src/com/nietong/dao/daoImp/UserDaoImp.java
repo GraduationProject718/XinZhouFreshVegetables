@@ -17,6 +17,28 @@ public class UserDaoImp implements UserDao {
 	
 	
 	@Override
+	public void editPassword(String uid, String password) throws SQLException {
+		String sql = "update user set password=? where uid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		qr.update(sql,password,uid);
+	}
+
+	@Override
+	public User findUserById(String uid) throws SQLException {
+		String sql = "select * from user where uid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanHandler<User>(User.class),uid);
+	}
+
+	@Override
+	public void editUser(User user) throws SQLException {
+		String sql = "update user set name=?, email=?, telephone=?, sex=? where uid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		Object[] params = {user.getName(),user.getEmail(),user.getTelephone(),user.getSex(),user.getUid()};
+		qr.update(sql,params);
+	}
+
+	@Override
 	public void delAdminUser(String id) throws SQLException {
 		String sql = "delete from user where uid=?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());

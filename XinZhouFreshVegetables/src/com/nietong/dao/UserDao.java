@@ -21,4 +21,10 @@ public interface UserDao {
 
 	void delAdminUser(String id)throws SQLException;
 
+	void editUser(User user) throws SQLException;
+
+	User findUserById(String uid) throws SQLException;
+
+	void editPassword(String uid, String password)throws SQLException;
+
 }

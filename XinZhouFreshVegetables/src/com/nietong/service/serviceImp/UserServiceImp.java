@@ -15,6 +15,25 @@ public class UserServiceImp implements UserService {
 	
 	
 	@Override
+	public void editPassword(String uid, String password) throws SQLException {
+		UserDao UserDao = new UserDaoImp();
+		UserDao.editPassword(uid,password);
+		
+	}
+
+	@Override
+	public User findUserById(String uid) throws SQLException {
+		UserDao UserDao = new UserDaoImp();
+		return UserDao.findUserById(uid);
+	}
+
+	@Override
+	public void editUser(User user) throws SQLException {
+		UserDao UserDao = new UserDaoImp();
+		UserDao.editUser(user);
+	}
+
+	@Override
 	public void delAdminUser(String id) throws SQLException {
 		UserDao UserDao = new UserDaoImp();
 		UserDao.delAdminUser(id);

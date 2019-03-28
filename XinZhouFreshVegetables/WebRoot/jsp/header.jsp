@@ -34,7 +34,7 @@
 					  </c:if>
 						
 					  <c:if test="${not empty loginUser}">
-						<li>欢迎${loginUser.username}<%-- <a href="${pageContext.request.contextPath}/jsp/user.jsp">${loginUser.username}</a> --%></li>
+						<li>欢迎<a href="UserServlet?method=userUI">${loginUser.username}</a></li>
 						<li><a href="${pageContext.request.contextPath}/UserServlet?method=logOut">退出</a></li>
 						<li><a href="${pageContext.request.contextPath}/jsp/cart.jsp">购物车</a></li>
 						<li><a href="${pageContext.request.contextPath}/OrderServlet?method=findMyOrdersWithPage&num=1">我的订单</a></li>

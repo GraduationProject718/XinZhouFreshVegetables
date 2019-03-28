@@ -29,6 +29,42 @@ public class UserServlet extends BaseServlet {
 		return "/jsp/login.jsp";
 	}
 	
+	public String userUI(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		return "/jsp/user.jsp";
+	}
+	
+	public String editPassword(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String uid = request.getParameter("uid");
+		String password= request.getParameter("repassword");
+		UserService UserService = new UserServiceImp();
+		UserService.editPassword(uid,password);
+		User user = new User();
+		user = UserService.findUserById(uid);
+		request.getSession().setAttribute("loginUser", user);
+		response.sendRedirect("/XinZhouFreshVegetables/jsp/user.jsp");
+		return null;
+	}
+	
+	public String editUser(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String uid = request.getParameter("uid");
+		String name= request.getParameter("name");
+		String telephone= request.getParameter("telephone");
+		String email= request.getParameter("email");
+		String sex= request.getParameter("sex");
+		User user = new User();
+		user.setUid(uid);
+		user.setName(name);
+		user.setTelephone(telephone);
+		user.setEmail(email);
+		user.setSex(sex);
+		UserService UserService = new UserServiceImp();
+		UserService.editUser(user);
+		user = UserService.findUserById(uid);
+		request.getSession().setAttribute("loginUser", user);
+		response.sendRedirect("/XinZhouFreshVegetables/jsp/user.jsp");
+		return null;
+	}
+	
 	public String logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 用户退出登录
 		// 清除session
