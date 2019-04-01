@@ -10,17 +10,20 @@
 		<script type="text/javascript">
 			
 		</script>
+		
+		<style type="text/css">
+			td{
+				font-size:20px;
+			}
+			table{
+				width:1400px;
+			}
+		</style>
 	</HEAD>
 	<body>
 		<br>
-			<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
+			<table cellSpacing="1" cellPadding="0" align="center" bgColor="#f5fafe" border="0">
 				<TBODY>
-					<tr>
-						<td class="ta_01" align="center" bgColor="#afd1f3">
-							<strong>订单列表</strong>
-						</TD>
-					</tr>
-					
 					<tr>
 						<td class="ta_01" align="center" bgColor="#f5fafe">
 							<table cellspacing="0" cellpadding="1" rules="all"
@@ -35,13 +38,13 @@
 									<td align="center" width="20%">
 										订单编号
 									</td>
-									<td align="center" width="5%">
+									<td align="center" width="10%">
 										订单金额
 									</td>
-									<td align="center" width="5%">
+									<td align="center" width="10%">
 										收货人
 									</td>
-									<td align="center" width="5%">
+									<td align="center" width="10%">
 										订单状态
 									</td>
 									<td align="center" width="60%">

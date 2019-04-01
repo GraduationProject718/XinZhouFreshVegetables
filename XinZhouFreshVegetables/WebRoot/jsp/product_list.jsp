@@ -42,14 +42,14 @@
 				</div>
 			</c:if>
 			<c:if test="${not empty page.list}">
-				<c:forEach items="${page.list}" var="p">
-					<c:if test="${p.pflag == 0 }">
-					<div class="col-md-2">
+				<c:forEach items="${page.list}" var="p" varStatus="status">
+					<c:if test="${p.pflag == 0}">
+					<div class="col-md-4">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
-							<img src="${pageContext.request.contextPath}/${p.pimage}" width="170" height="170" style="display: inline-block;">
+							<img src="${pageContext.request.contextPath}/${p.pimage}" width="200" height="200" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}" style='color:green'>${p.pname}</a></p>
-						<p><font color="#FF0000">商城价：&yen;${p.shop_price}</font></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}" style='color:green;font-size:18px;'>${p.pname}</a></p>
+						<p style="font-size:15px;"><font color="#FF0000">商城价：&yen;${p.shop_price}</font></p>
 					</div>
 					</c:if>
 				</c:forEach>

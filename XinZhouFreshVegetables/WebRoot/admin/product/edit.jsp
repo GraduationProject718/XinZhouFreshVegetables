@@ -12,6 +12,15 @@
 			    $(this).closest('input[type=file]').trigger('click');
 			})
 		</script>
+		
+		<style type="text/css">
+			td{
+				font-size:20px;
+			}
+			table{
+				width:1400px;
+			}
+		</style>
 	</HEAD>
 	
 	<body>

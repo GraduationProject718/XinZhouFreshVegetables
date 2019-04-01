@@ -11,19 +11,24 @@
 				window.location.href = "${pageContext.request.contextPath}/AdminProductServlet?method=addProductUI";
 			}
 		</script>
+		
+		<style type="text/css">
+			td{
+				font-size:20px;
+			}
+			table{
+				width:1400px;
+			}
+		</style>
 	</HEAD>
 	<body>
 		<br>
-			<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
+			<table cellSpacing="1"  cellPadding="0" align="center" bgColor="#f5fafe" border="0">
 				<TBODY>
+					
 					<tr>
-						<td class="ta_01" align="center" bgColor="#afd1f3">
-							<strong>商品列表</strong>
-						</TD>
-					</tr>
-					<tr>
-						<td class="ta_01" align="right">
-							<button type="button" id="add" name="add" value="添加" class="button_add" onclick="addProduct()">&#28155;&#21152;</button>
+						<td class="ta_01" >
+							<button style="font-size:20px;" type="button" id="add" name="add" value="添加" class="button_add" onclick="addProduct()">&#28155;&#21152;</button>
 						</td>
 					</tr>
 					<tr>

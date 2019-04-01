@@ -34,7 +34,7 @@
 					  </c:if>
 						
 					  <c:if test="${not empty loginUser}">
-						<li>欢迎<a href="UserServlet?method=userUI">${loginUser.username}</a></li>
+						<li>欢迎<a href="UserServlet?method=userUI">${loginUser.name}</a></li>
 						<li><a href="${pageContext.request.contextPath}/UserServlet?method=logOut">退出</a></li>
 						<li><a href="${pageContext.request.contextPath}/jsp/cart.jsp">购物车</a></li>
 						<li><a href="${pageContext.request.contextPath}/OrderServlet?method=findMyOrdersWithPage&num=1">我的订单</a></li>
@@ -46,7 +46,7 @@
 			<!--
             	描述：导航条
             -->
-			<div class="container-fluid">
+			<div class="container-fluid" style="font-size:18px;">
 				<nav class="navbar navbar-inverse">
 					<div class="container-fluid">
 						<!-- Brand and toggle get grouped for better mobile display -->

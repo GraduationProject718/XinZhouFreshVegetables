@@ -78,8 +78,8 @@
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
 							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666'>${p.pname}</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666;font-size:20px;'>${p.pname}</a></p>
+						<p><font color="#E4393C" style="font-size:20px;">&yen;${p.shop_price}</font></p>
 					</div>
 					</c:if>
 				</c:forEach>
@@ -97,7 +97,7 @@
 				<div class="col-md-10">
 				<table>
 				<c:forEach items="${notice}" var="n">
-					<tr>
+					<tr style="height:40px;padding-top:20px;">
 						<td>
 							<div >
 								${n.ntitle}
@@ -117,7 +117,7 @@
 				<div class="col-md-12">
 					<h2>最新商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
-				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+				<!-- <div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
 					<img src="img/shu1.jpg" width="205" height="404" style="display: inline-block;"/>
 				</div>
 				<div class="col-md-10">
@@ -125,15 +125,15 @@
 						<a href="product_info.htm">
 							<img src="img/heng1.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
-					</div>
+					</div> -->
 				<c:forEach items="${news}" var="p">
 					<c:if test="${p.pflag == 0 }">
 					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
 							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666'>${p.pname}</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666;font-size:20px;'>${p.pname}</a></p>
+						<p><font color="#E4393C" style="font-size:20px;">&yen;${p.shop_price}</font></p>
 					</div>
 					</c:if>
 				</c:forEach>
@@ -148,7 +148,7 @@
 				<div class="col-md-12">
 					<h2>热门商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
-				<div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
+				<!-- <div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
 					<img src="img/shu2.jpg" width="205" height="404" style="display: inline-block;"/>
 				</div>
 				<div class="col-md-10">
@@ -157,15 +157,15 @@
 							<img src="img/heng2.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
-				
+				 -->
 				<c:forEach items="${hots}" var="p">
 					<c:if test="${p.pflag == 0 }">
 					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
 							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666'>${p.pname}</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;${p.shop_price}</font></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666;font-size:20px;'>${p.pname}</a></p>
+						<p><font color="#E4393C" style="font-size:20px;">&yen;${p.shop_price}</font></p>
 					</div>
 					</c:if>
 				</c:forEach>

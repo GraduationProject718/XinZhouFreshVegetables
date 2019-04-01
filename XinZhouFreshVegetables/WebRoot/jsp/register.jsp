@@ -36,7 +36,7 @@ font {
 </head>
 <body>
 <%@ include file="/jsp/header.jsp" %>
-<div class="container" style="width:100%;background:url('${pageContext.request.contextPath}/img/regist_bg.jpg');">
+<div class="container" style="width:1400px;background:url('${pageContext.request.contextPath}/img/regist_bg.jpg');">
 <div class="row"> 
 	<div class="col-md-2"></div>
 	<div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
