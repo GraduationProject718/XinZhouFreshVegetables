@@ -41,7 +41,7 @@ public class ProductDaoImp implements ProductDao{
 	
 	@Override
 	public List searchProduct(String searchInfo, int startIndex, int pageSize) throws Exception {
-		String sql = "select * from product where  pname = ? like '%\\%%' limit ?,?";
+		String sql = "select * from product where  pname=? limit ?,?";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Product>(Product.class),searchInfo,startIndex,pageSize);
 	}

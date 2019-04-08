@@ -67,9 +67,9 @@
 							</ul>
 							<form class="navbar-form navbar-right" role="search" action="ProductServlet?method=searchProduct&num=1" method="post">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search" name="searchInfo" id="searchInfo" >
+									<input type="text" class="form-control"  name="searchInfo" id="searchInfo" >
 								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
+								<button type="submit" class="btn btn-default">搜索</button>
 							</form>
 
 						</div>

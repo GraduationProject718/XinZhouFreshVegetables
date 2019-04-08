@@ -100,7 +100,7 @@
 					<tr style="height:40px;padding-top:20px;">
 						<td>
 							<div >
-								${n.ntitle}
+								<a href="###">${n.ntitle}</a>
 							</div>
 						</td>
 					</tr>

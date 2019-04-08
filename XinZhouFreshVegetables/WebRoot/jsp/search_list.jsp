@@ -63,9 +63,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					</c:if>
 				</c:forEach>
-				<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
 			</c:if>
 		</div>
+	<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
   <%@ include file="/jsp/footer.jsp" %>
   </body>
 </html>
