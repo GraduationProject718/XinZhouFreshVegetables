@@ -15,6 +15,22 @@ import com.nietong.utils.JDBCUtils;
 
 public class NoticeDaoImp implements NoticeDao {
 
+	
+	
+	@Override
+	public List<Notice> findNoticeByIndex(int startIndex, int pageSize) throws Exception {
+		String sql = "select * from notice order by ndate limit ?,?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanListHandler<Notice>(Notice.class),startIndex,pageSize);
+	}
+
+	@Override
+	public Notice view(String nid) throws Exception {
+		String sql = "select * from notice where nid=?";
+		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
+		return qr.query(sql, new BeanHandler<Notice>(Notice.class),nid);
+	}
+
 	@Override
 	public int findTotalRecordsByNotice() throws Exception {
 		String sql = "select count(*) from notice";

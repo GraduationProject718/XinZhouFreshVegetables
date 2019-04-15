@@ -39,9 +39,6 @@
 	<%@ include file="/jsp/header.jsp" %>
 		<div class="container">
 			<div class="row">
-				<div style="border: 1px solid #e4e4e4;width:930px;margin-bottom:10px;margin:0 auto;padding:10px;margin-bottom:10px;">
-					<a href="${pageContext.request.contextPath}/">首页&nbsp;&nbsp;&gt;</a>
-				</div>
 
 				<div style="margin:0 auto;width:950px;">
 				
@@ -56,18 +53,16 @@
 					    	寻找到request可以获取到一个对象 product
 					    	${product.pname} :通过获取到的product对象调用对象上的getPname()方法.
 					     -->
-						<div><strong>${product.pname}</strong></div>
+						<div style="font-size:25px;"><strong>${product.pname}</strong></div>
 						<div style="border-bottom: 1px dotted #dddddd;width:350px;margin:10px 0 10px 0;">
-							<div>编号:${product.pid}</div>
+							<div></div>
 						</div>
 
-						<div style="margin:10px 0 10px 0;">商城价: <strong style="color:#ef0101;">￥：${product.shop_price}元/份</strong> 市场价： <del>￥${product.market_price}元/份</del>
+						<div style="margin:10px 0 10px 0;font-size:20px;">商城价: <strong style="color:#ef0101;">￥：${product.shop_price}元/份</strong> 市场价： <del>￥${product.market_price}元/份</del>
 						</div>
-
-						<div style="margin:10px 0 10px 0;">促销: <a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)" style="background-color: #f07373;">限时抢购</a> </div>
 
 						<div style="padding:10px;border:1px solid #e7dbb1;width:330px;margin:15px 0 10px 0;;background-color: #fffee6;">
-							<div style="margin:5px 0 10px 0;">白色</div>
+							<div style="margin:5px 0 10px 0;"></div>
 
 							<div style="border-bottom: 1px solid #faeac7;margin-top:20px;padding-left: 10px;">购买数量:
 								
@@ -82,7 +77,7 @@
 								<!-- 取消链接的默认行为 -->
 								<a href="javascript:void(0)">
 									<input id="btnId" style="background: url('${pageContext.request.contextPath}/img/product.gif') no-repeat scroll 0 -600px rgba(0, 0, 0, 0);height:36px;width:127px;" value="加入购物车" type="button">
-								</a> &nbsp;收藏商品</div>
+								</a></div>
 						</div>
 					</div>
 				   </form>
@@ -99,9 +94,9 @@
 		<!--
        		在线评价
         -->
-		<div style="width:1210px;margin:0 auto; padding: 0 9px;border: 1px solid #ddd;border-top: 2px solid #999;height: 246px;">
+		<div style="width:1210px;margin:0 auto; padding: 0 9px;height: 246px;">
 
-			<h4 style="width: 50%;float: left;font: 14px/30px " 微软雅黑 ";">在线评价</h4>
+			<%-- <h4 style="width: 50%;float: left;font: 14px/30px " 微软雅黑 ";">在线评价</h4>
 			<div style="width: 50%;float: right;text-align: right;"></div>
 			<div style="clear: both;"></div>
 
@@ -112,7 +107,7 @@
 					<input type="hidden" name="pid" value="${product.pid}"/>
 					<input type="submit" value="评价" onclick="return check();" />
 				</form>
-			</div>
+			</div> --%>
 			
 			<c:if test="${not empty page.list}">
 				<c:forEach items="${page.list}" var="e">
@@ -120,8 +115,8 @@
 						<p>${e.content }${e.date }</p>
 					</div>
 				</c:forEach>
-			</c:if>
 			<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
+			</c:if>
 		</div>
 		<br /><br />
 	<%@include file="/jsp/footer.jsp" %>

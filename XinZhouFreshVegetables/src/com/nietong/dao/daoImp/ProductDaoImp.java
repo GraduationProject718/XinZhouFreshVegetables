@@ -97,14 +97,14 @@ public class ProductDaoImp implements ProductDao{
 
 	@Override
 	public List<Product> findHots() throws Exception {
-		String sql = "SELECT * FROM product WHERE pflag=0 AND is_hot=1 ORDER BY pdate DESC LIMIT 0,9";
+		String sql = "SELECT * FROM product WHERE pflag=0 AND is_hot=1 ORDER BY pdate DESC LIMIT 0,8";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Product>(Product.class));
 	}
 
 	@Override
 	public List<Product> findTop() throws Exception {
-		String sql = "SELECT * FROM product WHERE pflag=0 ORDER BY pid DESC LIMIT 0,4";
+		String sql = "SELECT * FROM product WHERE pflag=0 ORDER BY pid DESC LIMIT 0,3";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Product>(Product.class));
 	}
@@ -118,7 +118,7 @@ public class ProductDaoImp implements ProductDao{
 
 	@Override
 	public List<Product> findNew() throws Exception {
-		String sql = "SELECT * FROM product WHERE pflag=0 ORDER BY pdate DESC LIMIT 0,9";
+		String sql = "SELECT * FROM product WHERE pflag=0 ORDER BY pdate DESC LIMIT 0,8";
 		QueryRunner qr = new QueryRunner(JDBCUtils.getDataSource());
 		return qr.query(sql, new BeanListHandler<Product>(Product.class));
 	}

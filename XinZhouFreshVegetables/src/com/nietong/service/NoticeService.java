@@ -19,4 +19,8 @@ public interface NoticeService {
 
 	void editNoticePage(Notice notice)throws Exception;
 
+	Notice view(String nid)throws Exception;
+
+	PageModel findNoticeByIndex(int curNum)throws Exception;
+
 }

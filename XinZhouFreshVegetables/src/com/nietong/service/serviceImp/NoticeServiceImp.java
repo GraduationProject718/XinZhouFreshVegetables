@@ -11,6 +11,22 @@ import com.nietong.service.NoticeService;
 public class NoticeServiceImp implements NoticeService {
 	NoticeDao noticeDao = new NoticeDaoImp();
 
+	
+	@Override
+	public PageModel findNoticeByIndex(int curNum) throws Exception {
+		int totalRecords = noticeDao.findTotalRecordsByNotice();
+		PageModel pm = new PageModel(curNum,totalRecords,5);
+		List<Notice> list = noticeDao.findNoticeByIndex(pm.getStartIndex(),pm.getPageSize());
+		pm.setList(list);
+		pm.setUrl("NoticeServlet?method=findNoticeByIndex");
+		return pm;
+	}
+
+	@Override
+	public Notice view(String nid) throws Exception {
+		return noticeDao.view(nid);
+	}
+
 	@Override
 	public PageModel findAllNotice(int curNum) throws Exception {
 		int totalRecords = noticeDao.findTotalRecordsByNotice();

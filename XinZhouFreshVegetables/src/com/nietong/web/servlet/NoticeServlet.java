@@ -17,6 +17,21 @@ import com.nietong.web.base.BaseServlet;
 
 public class NoticeServlet extends BaseServlet {
 	NoticeService noticeService = new NoticeServiceImp();
+	
+	public String findNoticeByIndex(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		int curNum = Integer.valueOf(request.getParameter("num"));
+		PageModel pm = noticeService.findNoticeByIndex(curNum);
+		request.setAttribute("page", pm);
+		return "/jsp/gonggao.jsp";
+	}
+	
+	public String view(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String nid = request.getParameter("nid");
+		Notice notice = noticeService.view(nid);
+		request.setAttribute("notice", notice);
+		return "/jsp/gonggaoview.jsp";
+	}
+	
 	public String findAllNotice(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		int curNum = Integer.valueOf(request.getParameter("num"));
 		PageModel pm = noticeService.findAllNotice(curNum);

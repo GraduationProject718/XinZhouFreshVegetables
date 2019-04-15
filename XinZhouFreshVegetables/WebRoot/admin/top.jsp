@@ -30,10 +30,7 @@ TH {
 		<table width="100%" height="70%"  border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-					<img width="100%" src="${pageContext.request.contextPath}/img/admin/top_01.jpg">
-				</td>
-
-				<td width="100%" background="${pageContext.request.contextPath}/img/admin/top_100.jpg">
+					<span style="font-size:30px;margin-left:20px;" >忻州新鲜蔬菜订购网后台管理系统</span>
 				</td>
 			</tr>
 		</table>

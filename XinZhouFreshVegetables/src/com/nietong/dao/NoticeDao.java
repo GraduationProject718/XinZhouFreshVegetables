@@ -20,4 +20,8 @@ public interface NoticeDao {
 
 	void editNoticePage(Notice notice)throws Exception;
 
+	Notice view(String nid)throws Exception;
+
+	List<Notice> findNoticeByIndex(int startIndex, int pageSize)throws Exception;
+
 }

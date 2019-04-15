@@ -67,32 +67,32 @@
 
             	描述：排行榜
             -->
-			<div class="container-fluid" style="width:50%;float:left;">
+			<div class="container-fluid" style="width:70%;float:left;">
 				<div class="col-md-12">
 					<h2>排行榜&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
-				<div class="col-md-10">
+				
 				<c:forEach items="${top}" var="p">
 					<c:if test="${p.pflag == 0 }">
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;margin-right:40px;">
+					<div class="col-md-4" style="text-align:center;height:400px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
-							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
+							<img src="${pageContext.request.contextPath}/${p.pimage}"style="width:80%;height:300px;display: inline-block;">
 						</a>
 						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666;font-size:20px;'>${p.pname}</a></p>
 						<p><font color="#E4393C" style="font-size:20px;">&yen;${p.shop_price}</font></p>
 					</div>
 					</c:if>
 				</c:forEach>
-				</div>
+				
 			</div>		
 			
 			<!--
 
             	描述：站内公告
             -->
-			<div class="container-fluid" style="width:50%;float:right;font-size:20px;">
+			<div class="container-fluid" style="width:30%;float:right;font-size:20px;">
 				<div class="col-md-12">
-					<h2>站内公告&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
+					<h2>站内公告&nbsp;&nbsp;<a href="${pageContext.request.contextPath}/NoticeServlet?method=findNoticeByIndex&num=1" style="font-size:20px;float:right;">更多</a></h2>
 				</div>
 				<div class="col-md-10">
 				<table>
@@ -100,7 +100,7 @@
 					<tr style="height:40px;padding-top:20px;">
 						<td>
 							<div >
-								<a href="###">${n.ntitle}</a>
+								<a href="NoticeServlet?method=view&nid=${n.nid}">${n.ntitle}</a>
 							</div>
 						</td>
 					</tr>
@@ -111,26 +111,17 @@
 			
 			<!--
 
-            	描述：商品显示
+            	描述：最新商品
             -->
 			<div class="container-fluid">
 				<div class="col-md-12">
 					<h2>最新商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
-				<!-- <div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
-					<img src="img/shu1.jpg" width="205" height="404" style="display: inline-block;"/>
-				</div>
-				<div class="col-md-10">
-					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-						<a href="product_info.htm">
-							<img src="img/heng1.jpg" width="516px" height="200px" style="display: inline-block;">
-						</a>
-					</div> -->
 				<c:forEach items="${news}" var="p">
 					<c:if test="${p.pflag == 0 }">
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
+					<div class="col-md-3" style="text-align:center;height:500px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
-							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
+							<img src="${pageContext.request.contextPath}/${p.pimage}" style="width:80%;height:400px;display: inline-block;" />
 						</a>
 						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666;font-size:20px;'>${p.pname}</a></p>
 						<p><font color="#E4393C" style="font-size:20px;">&yen;${p.shop_price}</font></p>
@@ -142,27 +133,17 @@
 			</div>
 			<!--
 
-            	描述：商品显示
+            	描述：热门商品
             -->
 			<div class="container-fluid">
 				<div class="col-md-12">
 					<h2>热门商品&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/img/title2.jpg"/></h2>
 				</div>
-				<!-- <div class="col-md-2" style="border:1px solid #E7E7E7;border-right:0;padding:0;">
-					<img src="img/shu2.jpg" width="205" height="404" style="display: inline-block;"/>
-				</div>
-				<div class="col-md-10">
-					<div class="col-md-6" style="text-align:center;height:200px;padding:0px;">
-						<a href="product_info.htm">
-							<img src="img/heng2.jpg" width="516px" height="200px" style="display: inline-block;">
-						</a>
-					</div>
-				 -->
 				<c:forEach items="${hots}" var="p">
 					<c:if test="${p.pflag == 0 }">
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
+					<div class="col-md-3" style="text-align:center;height:500px;padding:10px 0px;">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
-							<img src="${pageContext.request.contextPath}/${p.pimage}" width="130" height="130" style="display: inline-block;">
+							<img src="${pageContext.request.contextPath}/${p.pimage}" style="width:80%;height:400px;display: inline-block;" />
 						</a>
 						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1" style='color:#666;font-size:20px;'>${p.pname}</a></p>
 						<p><font color="#E4393C" style="font-size:20px;">&yen;${p.shop_price}</font></p>

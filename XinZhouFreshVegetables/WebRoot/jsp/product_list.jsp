@@ -29,13 +29,8 @@
 		
 <%@ include file="/jsp/header.jsp" %>
 
-		<div class="row" style="width:1210px;margin:0 auto;">
-			<div class="col-md-12">
-				<ol class="breadcrumb">
-					<li><a href="#">首页</a></li>
-				</ol>
-			</div>
-
+		<div class="row" style="width:1400px;margin:0 auto;">
+			
 			<c:if test="${empty page.list}">
 				<div class="col-md-2">
 					<h1>暂无数据</h1>
@@ -44,12 +39,12 @@
 			<c:if test="${not empty page.list}">
 				<c:forEach items="${page.list}" var="p" varStatus="status">
 					<c:if test="${p.pflag == 0}">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}&num=1">
 							<img src="${pageContext.request.contextPath}/${p.pimage}" width="200" height="200" style="display: inline-block;">
 						</a>
-						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}" style='color:green;font-size:18px;'>${p.pname}</a></p>
-						<p style="font-size:15px;"><font color="#FF0000">商城价：&yen;${p.shop_price}</font></p>
+						<p><a href="${pageContext.request.contextPath}/ProductServlet?method=findProductByPid&pid=${p.pid}" style='color:green;font-size:18px;padding-left:40px;'>${p.pname}</a></p>
+						<p style="font-size:15px;padding-left:40px;"><font color="#FF0000">商城价：&yen;${p.shop_price}</font></p>
 					</div>
 					</c:if>
 				</c:forEach>

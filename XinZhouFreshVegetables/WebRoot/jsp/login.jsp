@@ -36,7 +36,7 @@ font {
 </head>
 <body>
 <%@ include file="/jsp/header.jsp" %>	
-<div class="container"  style="width:1400px;height:460px;background:#FF2C4C url('${pageContext.request.contextPath}/img/loginbg.jpg') no-repeat;">
+<div class="container"  style="width:1400px;height:460px;background:url('${pageContext.request.contextPath}/img/regist_bg.jpg');">
 <div class="row"> 
 	<div class="col-md-7">
 		<!--<img src="image/login.jpg" width="500" height="330" alt="会员登录" title="会员登录">-->

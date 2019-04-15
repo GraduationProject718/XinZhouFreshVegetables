@@ -47,8 +47,7 @@
 								  </c:if>
 								  <c:if test="${order.state==2}">待发货</c:if>
 								  <c:if test="${order.state==3}">在路上</c:if>
-								  <c:if test="${order.state==4}">结束</c:if>
-								  
+								  <c:if test="${order.state==4}">结束<button style="float:right;" data-toggle="modal" data-target="#myModal">评价</button></c:if>
 								</th>
 							</tr>
 							<tr class="warning">
@@ -88,7 +87,35 @@
 			</c:if>
 		</div>
 
+		<!-- 模态框（Modal） -->
+		<form action="EstimateServlet?method=addEstimate" method="post"  >
+		<input type="hidden" name="uid" id="uid" value="${loginUser.uid }">
+		<input type="hidden" name="pid" value="${orderItem.pid}"/>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						<h4 class="modal-title" id="myModalLabel">
+							商品评价
+						</h4>
+					</div>
+					<div class="modal-body">
+						<textarea rows="10" cols="78" name="estimateInfo" id="estimateInfo"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary">
+							确定
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 		<%@ include file="/jsp/footer.jsp" %>
 	</body>
-
 </html>
