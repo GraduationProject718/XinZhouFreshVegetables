@@ -23,6 +23,12 @@
 				height: 300px;
 			}
 		</style>
+		
+		<script type="text/javascript">
+			function add(pid){
+				$("#pid").attr("value",pid);
+			}
+		</script>
 	</head>
 
 	<body>
@@ -41,13 +47,13 @@
 					<c:forEach items="${page.list}" var="order">
 						<tbody>
 							<tr class="success">
-								<th colspan="5">订单编号:${order.oid} 金额:${order.total}
+								<th colspan="6">订单编号:${order.oid} 金额:${order.total}
 								  <c:if test="${order.state==1}">
 								  	<a href="${pageContext.request.contextPath}/OrderServlet?method=findOrderByOid&oid=${order.oid}">付款</a>
 								  </c:if>
 								  <c:if test="${order.state==2}">待发货</c:if>
 								  <c:if test="${order.state==3}">在路上</c:if>
-								  <c:if test="${order.state==4}">结束<button style="float:right;" data-toggle="modal" data-target="#myModal">评价</button></c:if>
+								  <c:if test="${order.state==4}">结束</c:if>
 								</th>
 							</tr>
 							<tr class="warning">
@@ -56,6 +62,7 @@
 								<th>价格</th>
 								<th>数量</th>
 								<th>小计</th>
+								<th>评价</th>
 							</tr>
 						<c:forEach items="${order.list}" var="orderItem">	
 							<tr class="active">
@@ -75,6 +82,38 @@
 								<td width="15%">
 									<span class="subtotal">￥${orderItem.total}</span>
 								</td>
+								<td width="8%">
+									<button style="" data-toggle="modal" data-target="#myModal" onclick="add('${orderItem.product.pid}');" >评价</button>
+									<!-- 模态框（Modal） -->
+									<form action="EstimateServlet?method=addEstimate" method="post"  >
+									<input type="hidden" name="uid" id="uid" value="${loginUser.uid }">
+									<input type="hidden" name="pid" id="pid" />
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+														&times;
+													</button>
+													<h4 class="modal-title" id="myModalLabel">
+														商品评价
+													</h4>
+												</div>
+												<div class="modal-body">
+													<textarea rows="10" cols="78" name="estimateInfo" id="estimateInfo"></textarea>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+													</button>
+													<button type="submit" class="btn btn-primary">
+														确定
+													</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+								</td>
 							</tr>
 						  </c:forEach>
 						</tbody>
@@ -87,35 +126,7 @@
 			</c:if>
 		</div>
 
-		<!-- 模态框（Modal） -->
-		<form action="EstimateServlet?method=addEstimate" method="post"  >
-		<input type="hidden" name="uid" id="uid" value="${loginUser.uid }">
-		<input type="hidden" name="pid" value="${orderItem.pid}"/>
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-							&times;
-						</button>
-						<h4 class="modal-title" id="myModalLabel">
-							商品评价
-						</h4>
-					</div>
-					<div class="modal-body">
-						<textarea rows="10" cols="78" name="estimateInfo" id="estimateInfo"></textarea>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-						</button>
-						<button type="button" class="btn btn-primary">
-							确定
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
+		
 		<%@ include file="/jsp/footer.jsp" %>
 	</body>
 </html>

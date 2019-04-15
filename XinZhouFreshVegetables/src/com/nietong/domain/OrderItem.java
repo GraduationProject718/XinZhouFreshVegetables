@@ -4,6 +4,9 @@ public class OrderItem {
 	private String itemid;//id
 	private int quantity;//数量
 	private double total;//小计
+	private String pid;
+	private String oid;
+	
 	//1_product携带更多数据
 	//2_面向对象角度,对象关联对象
 	private Product product;
@@ -40,5 +43,18 @@ public class OrderItem {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+	public String getOid() {
+		return oid;
+	}
+	public void setOid(String oid) {
+		this.oid = oid;
+	}
+	
 	
 }

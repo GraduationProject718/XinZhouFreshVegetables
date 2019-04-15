@@ -51,7 +51,7 @@
 			</c:if>
 		</div>
 		<div style="margin:20px;">
-			<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
+		<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
 		</div>
 		<%@ include file="/jsp/footer.jsp" %>
 	</body>

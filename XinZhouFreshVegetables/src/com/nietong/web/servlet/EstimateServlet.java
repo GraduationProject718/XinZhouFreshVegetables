@@ -28,7 +28,7 @@ public class EstimateServlet extends BaseServlet {
 		estimate.setUid(uid);
 		estimate.setPid(pid);
 		estimateService.addEstimate(estimate);
-		response.sendRedirect("ProductServlet?method=findProductByPid&pid="+pid);
+		response.sendRedirect("OrderServlet?method=findMyOrdersWithPage&num=1");
 		return null;
 	}
 }

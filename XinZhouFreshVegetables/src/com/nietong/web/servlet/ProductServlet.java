@@ -1,6 +1,8 @@
 package com.nietong.web.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.nietong.domain.PageModel;
 import com.nietong.domain.Product;
+import com.nietong.domain.Reply;
 import com.nietong.service.EstimateService;
 import com.nietong.service.ProductService;
+import com.nietong.service.ReplyService;
 import com.nietong.service.serviceImp.EstimateServiceImp;
 import com.nietong.service.serviceImp.ProductServiceImp;
+import com.nietong.service.serviceImp.ReplyServiceImp;
 import com.nietong.web.base.BaseServlet;
 
 
@@ -29,6 +34,9 @@ public class ProductServlet extends BaseServlet {
 		EstimateService estimateService = new EstimateServiceImp();
 		PageModel pm = estimateService.findEstimateByProductPage(pid,curNum);
 		request.setAttribute("page", pm);
+		ReplyService replyService = new ReplyServiceImp();
+		List<Reply> reply = replyService.findAll();
+		request.setAttribute("reply", reply);
 		return "/jsp/product_info.jsp";
 	}
 	public String searchProduct(HttpServletRequest request, HttpServletResponse response) throws Exception {

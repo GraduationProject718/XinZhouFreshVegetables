@@ -137,6 +137,11 @@
     <servlet-name>AdminUserServlet</servlet-name>
     <servlet-class>com.nietong.web.servlet.AdminUserServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ReplyServlet</servlet-name>
+    <servlet-class>com.nietong.web.servlet.ReplyServlet</servlet-class>
+  </servlet>
+
 
 
 
@@ -160,5 +165,9 @@
   <servlet-mapping>
     <servlet-name>AdminUserServlet</servlet-name>
     <url-pattern>/AdminUserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReplyServlet</servlet-name>
+    <url-pattern>/ReplyServlet</url-pattern>
   </servlet-mapping>
 </web-app>

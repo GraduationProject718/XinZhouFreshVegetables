@@ -90,35 +90,42 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		
 		<!--
        		在线评价
         -->
 		<div style="width:1210px;margin:0 auto; padding: 0 9px;height: 246px;">
-
-			<%-- <h4 style="width: 50%;float: left;font: 14px/30px " 微软雅黑 ";">在线评价</h4>
-			<div style="width: 50%;float: right;text-align: right;"></div>
-			<div style="clear: both;"></div>
-
-			<div style="overflow: hidden;">
-				<form action="EstimateServlet?method=addEstimate" method="post"  >
-					<textarea rows="10" cols="200" name="estimateInfo" id="estimateInfo"></textarea>
+			<div style="display:none;width:75%;margin:0 auto;" id="div1">
+				<hr />
+				<form action="ReplyServlet?method=addReplyByUid" method="post" >
+					<input type="hidden" name="eid" id="eid" />
 					<input type="hidden" name="uid" id="uid" value="${loginUser.uid }">
 					<input type="hidden" name="pid" value="${product.pid}"/>
-					<input type="submit" value="评价" onclick="return check();" />
+					<h3>请输入回复内容：</h3>
+					<textarea rows="10" cols="100" name="content" ></textarea><br>
+					<button type="submit" style="width:80px;height:30px;" onclick="return check()" >确定</button>
 				</form>
-			</div> --%>
-			
+			</div>
 			<c:if test="${not empty page.list}">
 				<c:forEach items="${page.list}" var="e">
-					<div class="col-md-2">
-						<p>${e.content }${e.date }</p>
+					<div style="width: 75%;margin:0 auto; min-height: 60px;border: 2px solid black;margin-top:20px;" >
+						<span>${e.content }</span><span style="float:right;">${e.date }</span><br />
+						<button style="float:right;"  id="button1" onclick="show1('${e.id }')" >回复</button>
+						<br /><br />
+						<c:forEach items="${reply}" var="r">
+							<c:if test="${r.eid == e.id }">
+								<span>${r.content}</span><span style="float:right;">${r.date}</span><br />
+							</c:if>
+						</c:forEach>
 					</div>
 				</c:forEach>
 			<jsp:include page="/jsp/pageFile.jsp"></jsp:include>
 			</c:if>
 		</div>
 		<br /><br />
+		
+		</div>
+		
 	<%@include file="/jsp/footer.jsp" %>
 	</body>
 <script>
@@ -128,5 +135,9 @@ $(function(){
 		formObj.submit();
 	});
 });
+function show1(eid){
+	$("#eid").attr("value",eid);
+	document.getElementById("div1").style.display="block";
+};
 </script>
 </html>

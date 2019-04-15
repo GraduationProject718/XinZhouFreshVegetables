@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css" />
+		<script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
 		<script type="text/javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
 		<style type="text/css">
 			td{
@@ -62,6 +63,7 @@
 												${ e.date }
 											</td>
 											<td align="center" style="HEIGHT: 22px">
+												<button id="button1" onclick="show1('${e.id }')">回复</button>
 												<a href="${pageContext.request.contextPath}/AdminEstimateServlet?method=delAdminEstimate&id=${e.id}">
 													<img src="${pageContext.request.contextPath}/img/admin/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
 												</a>
@@ -74,7 +76,23 @@
 				</TBODY>
 			</table>
 			<%@include file="/jsp/pageFile.jsp" %>
-		
+			
+			<div style="display:none;width:75%;margin:0 auto;" id="div1">
+				<hr />
+				<form action="ReplyServlet?method=addReplyByAdmin" method="post" >
+					<input type="hidden" name="eid" id="eid" />
+					<h3>请输入回复内容：</h3>
+					<textarea rows="10" cols="100" name="content" ></textarea><br>
+					<button type="submit" style="width:80px;height:30px;" >确定</button>
+				</form>
+			</div>
+			
+		<script>
+		function show1(eid){
+			$("#eid").attr("value",eid);
+			document.getElementById("div1").style.display="block";
+		};
+		</script>
 	</body>
 </HTML>
 
